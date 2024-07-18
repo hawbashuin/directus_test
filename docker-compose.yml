@@ -1,0 +1,24 @@
+# version: '3'
+services:
+  directus:
+    image: directus/directus:10.13.1
+    ports:
+      - 8055:8055
+    volumes:
+      - ./database:/directus/database
+      - ./uploads:/directus/uploads
+      - ./extensions:/directus/extensions
+    # env_file:
+    #   - ./.env #使用自定義環境
+    environment:
+      KEY: 'replace-with-random-value'
+      SECRET: 'replace-with-random-value'
+      ADMIN_EMAIL: 'r2.hawbashuin@gmail.com'
+      ADMIN_PASSWORD: '27911000'
+      DB_CLIENT: 'pg'
+      DB_HOST: 'host.docker.internal'
+      DB_PORT: 5432
+      DB_DATABASE: 'directus_test'
+      DB_USER: 'r2'
+      DB_PASSWORD: '27911000'
+      WEBSOCKETS_ENABLED: true
